@@ -1,10 +1,5 @@
 package Teste;
 
-/**
-*
-* @author Mailton
-*/
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -22,7 +17,7 @@ public class AcademiaTest {
 		
 		Aluno aluno = criarAluno();
 		academia.adicionarAluno(aluno);
-		Aluno aux = academia.getAluno(0);
+		Aluno aux = academia.getAluno(0); // comparando com o aluno na posição 0 da lista
 		assertEquals(aluno,aux);
 	}
 	
@@ -53,14 +48,6 @@ public class AcademiaTest {
 		Aluno aluno2 = criarAlunoAuxiliar();
 		academia.adicionarAluno(aluno2);
 		assertEquals(2, academia.quantidadeDeAlunos());
-	}
-	
-	@Test
-	public void buscarAluno(int matricula) {
-		Aluno aluno = criarAluno();
-		academia.adicionarAluno(aluno);
-		
-		assertEquals(matricula, academia.buscarAluno(123456));
 	}
 	
 	@Test
