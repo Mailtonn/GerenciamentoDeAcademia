@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import Fachada.AcademiaFacade;
 import Model.Aluno;
+import Model.Funcionario;
 import Model.Modalidade;
 import Model.Professor;
 
@@ -156,6 +157,55 @@ public class AcademiaTest {
 		assertEquals(modalidade2, academia.getModalidade(0));	
 	}
 	
+	@Test
+	public void adicionarFuncionario() {
+		
+		Funcionario funcionario = criarFuncionario();
+		academia.adicionarFuncionario(funcionario);
+		Funcionario aux = academia.getFuncionario(0);
+		assertEquals(funcionario,aux);
+	}
+	
+	@Test
+	public void removerFuncionario() {
+		
+		Funcionario funcionario = criarFuncionario();
+		academia.adicionarFuncionario(funcionario);
+		academia.removerFuncionario(funcionario);
+		assertEquals(0, academia.quantidadeDeFuncionario());
+	}
+	
+	@Test
+	public void adicionarFuncionarioDiferente() {
+		
+		Funcionario funcionario = criarFuncionario();
+		academia.adicionarFuncionario(funcionario);
+		funcionario = criarFuncionarioAuxiliar();
+		academia.adicionarFuncionario(funcionario);
+		Funcionario aux = academia.getFuncionario(1);
+		assertEquals(funcionario, aux);
+	}
+	
+	@Test
+	public void quantidadeDeFuncionario() {
+		
+		Funcionario funcionario = criarFuncionario();
+		academia.adicionarFuncionario(funcionario);
+		Funcionario funcionario2 = criarFuncionarioAuxiliar();
+		academia.adicionarFuncionario(funcionario2);
+		assertEquals(2, academia.quantidadeDeFuncionario());
+	}
+	
+	@Test
+	public void atualizarFuncionario() {
+		
+		Funcionario funcionario = criarFuncionario(); 
+		academia.adicionarFuncionario(funcionario); 
+		Funcionario funcionario2 = criarFuncionarioAuxiliar();
+		academia.atualizarFuncionario(funcionario, funcionario2); 
+		assertEquals(funcionario2, academia.getFuncionario(0));	
+	}
+	
 	public Aluno criarAluno(){
 		
 		Aluno aluno = new Aluno();
@@ -217,6 +267,28 @@ public class AcademiaTest {
 		modalidade.setNomeDaModalidade("Natação");
 		modalidade.setValor(70);
 		return modalidade;
+	}
+	
+	public Funcionario criarFuncionario(){
+		
+		Funcionario funcionario = new Funcionario();
+		funcionario.setNome("Diego");
+		funcionario.setEndereco("Rua x");
+		funcionario.setCpf(444444);
+		funcionario.setMatricula(5);
+		funcionario.setFuncao("faxineiro");
+		return funcionario;
+	}
+	
+	public Funcionario criarFuncionarioAuxiliar(){
+		
+		Funcionario funcionario = new Funcionario();
+		funcionario.setNome("João");
+		funcionario.setEndereco("Rua Y");
+		funcionario.setCpf(555555);
+		funcionario.setMatricula(6);
+		funcionario.setFuncao("Copeiro");
+		return funcionario;
 	}
 	
 }

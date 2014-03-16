@@ -3,7 +3,9 @@ package Fachada;
 import Gerenciamento.GerenciadorDeAluno;
 import Gerenciamento.GerenciadorDeModalidade;
 import Gerenciamento.GerenciadorDeProfessor;
+import Gerenciamento.GerenciamentoDeFuncionario;
 import Model.Aluno;
+import Model.Funcionario;
 import Model.Modalidade;
 import Model.Professor;
 
@@ -12,12 +14,14 @@ public class AcademiaFacade {
 	GerenciadorDeAluno gerenteAluno;
 	GerenciadorDeProfessor gerenteProfessor;
 	GerenciadorDeModalidade gerenteModalidade;
+	GerenciamentoDeFuncionario gerenteFuncionario;
 		
 	public AcademiaFacade(){
 		
 		gerenteAluno =  new GerenciadorDeAluno();
 		gerenteProfessor = new GerenciadorDeProfessor();
 		gerenteModalidade = new GerenciadorDeModalidade();
+		gerenteFuncionario = new GerenciamentoDeFuncionario();
 	}
 	
 	public void adicionarAluno(Aluno aluno){
@@ -83,5 +87,29 @@ public class AcademiaFacade {
 	  public void atualizarModalidade(Object modalidadeAntiga, Object modalidadeNova){
 		    gerenteModalidade.atualizarModalidade(modalidadeAntiga, modalidadeNova);
 	    }
-	
+	  
+	  public void adicionarFuncionario(Funcionario funcionario){
+			gerenteFuncionario.adicionarFuncionario(funcionario);
+		}
+		
+		public void removerFuncionario(Funcionario funcionario){
+			gerenteFuncionario.removerFuncionario(funcionario);
+		}
+		
+		public Funcionario getFuncionario(int posicao){
+			return gerenteFuncionario.getFuncionario(posicao);
+		}
+		
+		public int quantidadeDeFuncionario(){
+			return gerenteFuncionario.quantidadeFuncionario();
+		}
+		
+		public Funcionario buscarFuncionario(int matricula){
+			return gerenteFuncionario.buscarFuncionario(matricula);
+		}
+		
+	    public void atualizarFuncionario(Object funcAntigo, Object funcNovo){
+		    gerenteFuncionario.atualizarFuncionario(funcAntigo, funcNovo);
+	    }
+
 }
