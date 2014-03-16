@@ -32,5 +32,14 @@ public class GerenciadorDeProfessor {
 		}
 		return null;
 	}
+	
+	 public void atualizarProfessor(Object p1, Object p2) {
+			for (int i = 0; i < this.listaProfessores.size(); i++) {
+				if (this.listaProfessores.get(i).equals(p1)) {
+					this.listaProfessores.set(i, (Professor)p2);
+				}
+			}
+
+		}
 
 }

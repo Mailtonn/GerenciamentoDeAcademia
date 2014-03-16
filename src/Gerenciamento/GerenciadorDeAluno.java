@@ -33,4 +33,13 @@ public class GerenciadorDeAluno {
 		return null;
 	}
 	
+	   public void atualizarAluno(Object p1, Object p2) {
+			for (int i = 0; i < this.listaAlunos.size(); i++) {
+				if (this.listaAlunos.get(i).equals(p1)) {
+					this.listaAlunos.set(i, (Aluno)p2);
+				}
+			}
+
+		}
+	
 }

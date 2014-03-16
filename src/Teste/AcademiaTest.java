@@ -49,6 +49,16 @@ public class AcademiaTest {
 		academia.adicionarAluno(aluno2);
 		assertEquals(2, academia.quantidadeDeAlunos());
 	}
+		
+	@Test
+	public void atualizarAluno() {
+		
+		Aluno aluno1 = criarAluno(); 
+		academia.adicionarAluno(aluno1); 
+		Aluno aluno2 = criarAlunoAuxiliar();
+		academia.atualizarAluno(aluno1, aluno2); 
+		assertEquals(aluno2, academia.getAluno(0));	
+	}
 	
 	@Test
 	public void adicionarProfessor() {
@@ -89,6 +99,16 @@ public class AcademiaTest {
 	}
 	
 	@Test
+	public void atualizarProfessor() {
+		
+		Professor professor1 = criarProfessor(); 
+		academia.adicionarProfessor(professor1); 
+		Professor professor2 = criarProfessorAuxiliar();
+		academia.atualizarProfessor(professor1, professor2); 
+		assertEquals(professor2, academia.getprofessor(0));	
+	}
+	
+	@Test
 	public void adicionarModalidade() {
 		
 		Modalidade modalidade = criarModalidade();
@@ -126,7 +146,16 @@ public class AcademiaTest {
 		assertEquals(2, academia.quantidadeDeModalidade());
 	}
 	
-
+	@Test
+	public void atualizarModalidade() {
+		
+		Modalidade modalidade1 = criarModalidade(); 
+		academia.adicionarModalidade(modalidade1); 
+		Modalidade modalidade2 = criarModalidadeAuxiliar();
+		academia.atualizarModalidade(modalidade1, modalidade2); 
+		assertEquals(modalidade2, academia.getModalidade(0));	
+	}
+	
 	public Aluno criarAluno(){
 		
 		Aluno aluno = new Aluno();

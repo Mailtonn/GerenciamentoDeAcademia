@@ -39,6 +39,10 @@ public class AcademiaFacade {
 	public Aluno buscarAluno(int matricula){
 		return gerenteAluno.buscarAluno(matricula);
 	}
+	
+    public void atualizarAluno(Object alunoAntigo, Object alunoNovo){
+	    gerenteAluno.atualizarAluno(alunoAntigo, alunoNovo);
+    }
 		
 	public void adicionarProfessor(Professor professor){
 		gerenteProfessor.adicionarProfessor(professor);
@@ -56,6 +60,10 @@ public class AcademiaFacade {
 		return gerenteProfessor.quantidadeDeProfessores();
 	}
 	
+	 public void atualizarProfessor(Object profAntigo, Object profNovo){
+		    gerenteProfessor.atualizarProfessor(profAntigo, profNovo);
+	    }
+	
 	public void adicionarModalidade(Modalidade modalidade){
 		gerenteModalidade.adicionarModalidade(modalidade);
 	}
@@ -71,5 +79,9 @@ public class AcademiaFacade {
 	public int quantidadeDeModalidade(){
 		return gerenteModalidade.quantidadeDeModalidade();
 	}
+	
+	  public void atualizarModalidade(Object modalidadeAntiga, Object modalidadeNova){
+		    gerenteModalidade.atualizarModalidade(modalidadeAntiga, modalidadeNova);
+	    }
 	
 }

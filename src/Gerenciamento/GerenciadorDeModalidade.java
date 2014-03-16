@@ -2,7 +2,6 @@ package Gerenciamento;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Model.Modalidade;
 
 public class GerenciadorDeModalidade {
@@ -33,5 +32,14 @@ public class GerenciadorDeModalidade {
 		}
 		return null;
 	}
+	
+	 public void atualizarModalidade(Object p1, Object p2) {
+			for (int i = 0; i < this.listaModalidade.size(); i++) {
+				if (this.listaModalidade.get(i).equals(p1)) {
+					this.listaModalidade.set(i, (Modalidade)p2);
+				}
+			}
+
+		}
 
 }
